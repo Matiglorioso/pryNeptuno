@@ -17,11 +17,36 @@ namespace pryNeptuno
         {
             InitializeComponent();
         }
-        DataSet DS = new DataSet();
 
-        CNeptuno clase = new CNeptuno();
-        public void Mostrar()
+        OleDbConnection CNN;
+        OleDbDataAdapter DAClientes;
+        OleDbCommand cmdClientes;
+        OleDbDataReader DR;
+        DataSet DS = new DataSet();
+        String TablaEquipos = "Clientes";
+        public void ConectarBase()
         {
+            try
+            {
+                CNN = new OleDbConnection();
+                CNN.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NEPTUNO.accdb";
+                CNN.Open();
+                //tabla equipos
+                cmdClientes = new OleDbCommand();
+                cmdClientes.Connection = CNN;
+                cmdClientes.CommandType = CommandType.TableDirect;
+                cmdClientes.CommandText = TablaEquipos;
+                DAClientes = new OleDbDataAdapter(cmdClientes);
+                DAClientes.Fill(DS, "Clientes");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+            public void Mostrar()
+            {
             if (DS.Tables["Clientes"].Rows.Count > 0)
             {
                 foreach (DataRow dr in DS.Tables["Clientes"].Rows)
@@ -29,7 +54,7 @@ namespace pryNeptuno
                     dgvClientes.DataSource = DS.Tables["Clientes"];
                 }
             }
-        }
+    }
         public void GetClientes()
         {
             cmbClientes.DisplayMember = "Clientes";
@@ -42,7 +67,7 @@ namespace pryNeptuno
 
             try
             {
-                clase.ConectarBase();
+                ConectarBase();
                 Mostrar();
                 GetClientes();
             }
