@@ -19,20 +19,17 @@ namespace pryNeptuno
         }
         CNeptuno x = new CNeptuno();
                    
-        public void GetClientes()
-        {
-            cmbClientes.DisplayMember = "Clientes";
-            cmbClientes.ValueMember = "IdCliente";
-            cmbClientes.DataSource = DS.Tables["IdCliente"];
-            cmbClientes.SelectedIndex = 1;
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
             try
             {
                 x.ConectarBase();
-                GetClientes();
+                cmbPais.DisplayMember = "País";
+                cmbPais.ValueMember = "IdCliente";
+                cmbPais.DataSource = x.GetPaises();
+
+                x.Dispose();
             }
             catch (Exception ex)
             {

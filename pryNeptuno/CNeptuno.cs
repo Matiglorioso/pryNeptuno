@@ -45,13 +45,29 @@ namespace pryNeptuno
         {
             if (DS.Tables["Clientes"].Rows.Count > 0)
             {
-                foreach (DataRow dr in DS.Tables["Clientes"].Rows)
+                foreach(DataRow dr in DS.Tables["Clientes"].Rows)
                 {
-                    dgv.DataSource = DS.Tables["Clientes"];
+                    dgv.Rows.Add(dr["IdCliente"].ToString(), dr["NombreCompañía"].ToString(),
+                        dr["NombreContacto"].ToString(), dr["CargoContacto"].ToString(), dr["Dirección"].ToString(),
+                        dr["Ciudad"].ToString(), dr["Región"].ToString(), dr["País"].ToString(), dr["CódPostal"].ToString(),
+                        dr["Teléfono"].ToString(), dr["Fax"].ToString());
                 }
             }
+            CNN.Close();
+        }
+        public DataTable GetPaises()
+        {
+            if (DS != null && DS.Tables.Count == 1)
+            {
+                return DS.Tables["Clientes"];
+            }
+            return null;
+        }
 
-
+        public void Dispose()
+        {
+            DS.Dispose();
         }
     }
+    
 }
