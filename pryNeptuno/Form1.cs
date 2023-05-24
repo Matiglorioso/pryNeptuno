@@ -24,7 +24,6 @@ namespace pryNeptuno
 
             try
             {
-                x.ConectarBase();
                 cmbPais.DisplayMember = "País";
                 cmbPais.ValueMember = "IdCliente";
                 cmbPais.DataSource = x.GetPaises();
@@ -42,6 +41,19 @@ namespace pryNeptuno
         {
             x.Mostrar(dgvClientes);
 
+        }
+
+        private void btnElegirBase_Click(object sender, EventArgs e)
+        {
+           
+                string rutarchivo;
+                openFileDialog1.ShowDialog();
+                rutarchivo = openFileDialog1.FileName;
+
+                x.RutaDeBaseDatos = openFileDialog1.FileName;
+                x.ConectarBase(rutarchivo);
+           
+            
         }
     }
 }

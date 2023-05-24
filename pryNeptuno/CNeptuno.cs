@@ -19,12 +19,15 @@ namespace pryNeptuno
         OleDbDataReader DR;
         DataSet DS = new DataSet();
         String TablaClientes = "Clientes";
-        public void ConectarBase()
+
+        string Coneccion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source =";
+        public string RutaDeBaseDatos = "-";
+        public void ConectarBase(string rutarchivo)
         {
             try
             {
                 CNN = new OleDbConnection();
-                CNN.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NEPTUNO.accdb";
+                CNN.ConnectionString = Coneccion + rutarchivo;
                 CNN.Open();
                 //tabla equipos
                 cmdClientes = new OleDbCommand();

@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.cmbCiudad = new System.Windows.Forms.ComboBox();
-            this.cmbPais = new System.Windows.Forms.ComboBox();
-            this.lblPais = new System.Windows.Forms.Label();
-            this.lblCiudad = new System.Windows.Forms.Label();
-            this.btnMostrarTodos = new System.Windows.Forms.Button();
-            this.btnFiltrar = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +39,15 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbCiudad = new System.Windows.Forms.ComboBox();
+            this.cmbPais = new System.Windows.Forms.ComboBox();
+            this.lblPais = new System.Windows.Forms.Label();
+            this.lblCiudad = new System.Windows.Forms.Label();
+            this.btnMostrarTodos = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.gprFiltrar = new System.Windows.Forms.GroupBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnElegirBase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.gprFiltrar.SuspendLayout();
             this.SuspendLayout();
@@ -71,59 +73,6 @@
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(694, 205);
             this.dgvClientes.TabIndex = 2;
-            // 
-            // cmbCiudad
-            // 
-            this.cmbCiudad.FormattingEnabled = true;
-            this.cmbCiudad.Location = new System.Drawing.Point(67, 57);
-            this.cmbCiudad.Name = "cmbCiudad";
-            this.cmbCiudad.Size = new System.Drawing.Size(121, 21);
-            this.cmbCiudad.TabIndex = 3;
-            // 
-            // cmbPais
-            // 
-            this.cmbPais.FormattingEnabled = true;
-            this.cmbPais.Location = new System.Drawing.Point(67, 26);
-            this.cmbPais.Name = "cmbPais";
-            this.cmbPais.Size = new System.Drawing.Size(121, 21);
-            this.cmbPais.TabIndex = 4;
-            // 
-            // lblPais
-            // 
-            this.lblPais.AutoSize = true;
-            this.lblPais.Location = new System.Drawing.Point(26, 29);
-            this.lblPais.Name = "lblPais";
-            this.lblPais.Size = new System.Drawing.Size(30, 13);
-            this.lblPais.TabIndex = 5;
-            this.lblPais.Text = "Pais:";
-            // 
-            // lblCiudad
-            // 
-            this.lblCiudad.AutoSize = true;
-            this.lblCiudad.Location = new System.Drawing.Point(13, 60);
-            this.lblCiudad.Name = "lblCiudad";
-            this.lblCiudad.Size = new System.Drawing.Size(43, 13);
-            this.lblCiudad.TabIndex = 6;
-            this.lblCiudad.Text = "Ciudad:";
-            // 
-            // btnMostrarTodos
-            // 
-            this.btnMostrarTodos.Location = new System.Drawing.Point(407, 62);
-            this.btnMostrarTodos.Name = "btnMostrarTodos";
-            this.btnMostrarTodos.Size = new System.Drawing.Size(75, 23);
-            this.btnMostrarTodos.TabIndex = 7;
-            this.btnMostrarTodos.Text = "&Mostrar";
-            this.btnMostrarTodos.UseVisualStyleBackColor = true;
-            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Location = new System.Drawing.Point(225, 40);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
-            this.btnFiltrar.TabIndex = 8;
-            this.btnFiltrar.Text = "&Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
             // 
             // Column1
             // 
@@ -191,6 +140,59 @@
             this.Fax.Name = "Fax";
             this.Fax.ReadOnly = true;
             // 
+            // cmbCiudad
+            // 
+            this.cmbCiudad.FormattingEnabled = true;
+            this.cmbCiudad.Location = new System.Drawing.Point(67, 57);
+            this.cmbCiudad.Name = "cmbCiudad";
+            this.cmbCiudad.Size = new System.Drawing.Size(121, 21);
+            this.cmbCiudad.TabIndex = 3;
+            // 
+            // cmbPais
+            // 
+            this.cmbPais.FormattingEnabled = true;
+            this.cmbPais.Location = new System.Drawing.Point(67, 26);
+            this.cmbPais.Name = "cmbPais";
+            this.cmbPais.Size = new System.Drawing.Size(121, 21);
+            this.cmbPais.TabIndex = 4;
+            // 
+            // lblPais
+            // 
+            this.lblPais.AutoSize = true;
+            this.lblPais.Location = new System.Drawing.Point(26, 29);
+            this.lblPais.Name = "lblPais";
+            this.lblPais.Size = new System.Drawing.Size(30, 13);
+            this.lblPais.TabIndex = 5;
+            this.lblPais.Text = "Pais:";
+            // 
+            // lblCiudad
+            // 
+            this.lblCiudad.AutoSize = true;
+            this.lblCiudad.Location = new System.Drawing.Point(13, 60);
+            this.lblCiudad.Name = "lblCiudad";
+            this.lblCiudad.Size = new System.Drawing.Size(43, 13);
+            this.lblCiudad.TabIndex = 6;
+            this.lblCiudad.Text = "Ciudad:";
+            // 
+            // btnMostrarTodos
+            // 
+            this.btnMostrarTodos.Location = new System.Drawing.Point(407, 62);
+            this.btnMostrarTodos.Name = "btnMostrarTodos";
+            this.btnMostrarTodos.Size = new System.Drawing.Size(75, 23);
+            this.btnMostrarTodos.TabIndex = 7;
+            this.btnMostrarTodos.Text = "&Mostrar";
+            this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(225, 40);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 8;
+            this.btnFiltrar.Text = "&Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            // 
             // gprFiltrar
             // 
             this.gprFiltrar.Controls.Add(this.lblPais);
@@ -205,11 +207,26 @@
             this.gprFiltrar.TabStop = false;
             this.gprFiltrar.Text = "Filtrar por";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "opnNeptuno";
+            // 
+            // btnElegirBase
+            // 
+            this.btnElegirBase.Location = new System.Drawing.Point(528, 62);
+            this.btnElegirBase.Name = "btnElegirBase";
+            this.btnElegirBase.Size = new System.Drawing.Size(75, 23);
+            this.btnElegirBase.TabIndex = 10;
+            this.btnElegirBase.Text = "Elegir Base";
+            this.btnElegirBase.UseVisualStyleBackColor = true;
+            this.btnElegirBase.Click += new System.EventHandler(this.btnElegirBase_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 429);
+            this.Controls.Add(this.btnElegirBase);
             this.Controls.Add(this.gprFiltrar);
             this.Controls.Add(this.btnMostrarTodos);
             this.Controls.Add(this.dgvClientes);
@@ -242,6 +259,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fax;
         private System.Windows.Forms.GroupBox gprFiltrar;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnElegirBase;
     }
 }
 
