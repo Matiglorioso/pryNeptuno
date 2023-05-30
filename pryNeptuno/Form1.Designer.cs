@@ -47,7 +47,6 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.gprFiltrar = new System.Windows.Forms.GroupBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnElegirBase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.gprFiltrar.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +67,7 @@
             this.Column8,
             this.Column9,
             this.Fax});
-            this.dgvClientes.Location = new System.Drawing.Point(12, 156);
+            this.dgvClientes.Location = new System.Drawing.Point(27, 154);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(694, 205);
@@ -192,6 +191,7 @@
             this.btnFiltrar.TabIndex = 8;
             this.btnFiltrar.Text = "&Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // gprFiltrar
             // 
@@ -211,22 +211,11 @@
             // 
             this.openFileDialog1.FileName = "opnNeptuno";
             // 
-            // btnElegirBase
-            // 
-            this.btnElegirBase.Location = new System.Drawing.Point(528, 62);
-            this.btnElegirBase.Name = "btnElegirBase";
-            this.btnElegirBase.Size = new System.Drawing.Size(75, 23);
-            this.btnElegirBase.TabIndex = 10;
-            this.btnElegirBase.Text = "Elegir Base";
-            this.btnElegirBase.UseVisualStyleBackColor = true;
-            this.btnElegirBase.Click += new System.EventHandler(this.btnElegirBase_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 429);
-            this.Controls.Add(this.btnElegirBase);
             this.Controls.Add(this.gprFiltrar);
             this.Controls.Add(this.btnMostrarTodos);
             this.Controls.Add(this.dgvClientes);
@@ -260,7 +249,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fax;
         private System.Windows.Forms.GroupBox gprFiltrar;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnElegirBase;
     }
 }
 

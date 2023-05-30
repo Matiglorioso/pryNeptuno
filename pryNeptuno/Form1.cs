@@ -18,17 +18,17 @@ namespace pryNeptuno
             InitializeComponent();
         }
         CNeptuno x = new CNeptuno();
+        CDatos datos = new CDatos();
                    
         private void Form1_Load(object sender, EventArgs e)
         {
 
             try
             {
-                cmbPais.DisplayMember = "País";
-                cmbPais.ValueMember = "IdCliente";
-                cmbPais.DataSource = x.GetPaises();
+                datos.ConectarBase();
+                MessageBox.Show("Conección exitosa");
+                datos.CargarPaisCiudad(cmbCiudad, cmbPais);
 
-                x.Dispose();
             }
             catch (Exception ex)
             {
@@ -43,17 +43,19 @@ namespace pryNeptuno
 
         }
 
-        private void btnElegirBase_Click(object sender, EventArgs e)
+        private void btnFiltrar_Click(object sender, EventArgs e)
         {
-           
-                string rutarchivo;
-                openFileDialog1.ShowDialog();
-                rutarchivo = openFileDialog1.FileName;
+            dgvClientes.Rows.Clear();
 
-                x.RutaDeBaseDatos = openFileDialog1.FileName;
-                x.ConectarBase(rutarchivo);
-           
-            
+            if (cmbCiudad.Text.Length > 0 && cmbPais.Text.Length > 0)
+            {
+                datos.FiltrarGrillaPais(cmbPais, dgvClientes);
+                datos.FiltrarGrillaCiudad(cmbCiudad, dgvClientes);
+            }
+            else
+            {
+                MessageBox.Show("No puede dejar sin seleccionar");
+            }
         }
     }
 }

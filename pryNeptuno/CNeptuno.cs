@@ -22,27 +22,7 @@ namespace pryNeptuno
 
         string Coneccion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source =";
         public string RutaDeBaseDatos = "-";
-        public void ConectarBase(string rutarchivo)
-        {
-            try
-            {
-                CNN = new OleDbConnection();
-                CNN.ConnectionString = Coneccion + rutarchivo;
-                CNN.Open();
-                //tabla equipos
-                cmdClientes = new OleDbCommand();
-                cmdClientes.Connection = CNN;
-                cmdClientes.CommandType = CommandType.TableDirect;
-                cmdClientes.CommandText = TablaClientes;
-                DAClientes = new OleDbDataAdapter(cmdClientes);
-                DAClientes.Fill(DS, "Clientes");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
 
         public void Mostrar(DataGridView dgv)
         {
