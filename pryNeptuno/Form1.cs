@@ -17,7 +17,6 @@ namespace pryNeptuno
         {
             InitializeComponent();
         }
-        CNeptuno x = new CNeptuno();
         CDatos datos = new CDatos();
                    
         private void Form1_Load(object sender, EventArgs e)
@@ -27,7 +26,7 @@ namespace pryNeptuno
             {
                 datos.ConectarBase();
                 MessageBox.Show("Conección exitosa");
-                datos.CargarPaisCiudad(cmbCiudad, cmbPais);
+                datos.CargarGrilla(dgvClientes, cmbPais, cmbCiudad);
 
             }
             catch (Exception ex)
@@ -37,25 +36,20 @@ namespace pryNeptuno
             
         }
 
-        private void btnMostrarTodos_Click(object sender, EventArgs e)
-        {
-            x.Mostrar(dgvClientes);
-
-        }
-
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             dgvClientes.Rows.Clear();
+            datos.CargarGrilla(dgvClientes, cmbPais, cmbCiudad);
+        }
 
-            if (cmbCiudad.Text.Length > 0 && cmbPais.Text.Length > 0)
-            {
-                datos.FiltrarGrillaPais(cmbPais, dgvClientes);
-                datos.FiltrarGrillaCiudad(cmbCiudad, dgvClientes);
-            }
-            else
-            {
-                MessageBox.Show("No puede dejar sin seleccionar");
-            }
+        private void cmbPais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            datos.FiltrarCiudadesPorPais(cmbPais.Text.ToString(), cmbCiudad);
+        }
+
+        private void cmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
