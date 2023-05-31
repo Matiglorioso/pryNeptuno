@@ -1,6 +1,6 @@
 ﻿namespace pryNeptuno
 {
-    partial class frmElegirBD
+    partial class ElegirBD
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvGrilla = new System.Windows.Forms.DataGridView();
             this.btnBaseDatos = new System.Windows.Forms.Button();
             this.lblElegirBase = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.mrcBasedeDatos = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.mrcBasedeDatos.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvGrilla
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 142);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(632, 207);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvGrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGrilla.Location = new System.Drawing.Point(33, 142);
+            this.dgvGrilla.Name = "dgvGrilla";
+            this.dgvGrilla.Size = new System.Drawing.Size(632, 207);
+            this.dgvGrilla.TabIndex = 0;
             // 
             // btnBaseDatos
             // 
@@ -55,6 +55,7 @@
             this.btnBaseDatos.TabIndex = 1;
             this.btnBaseDatos.Text = "Base de datos";
             this.btnBaseDatos.UseVisualStyleBackColor = true;
+            this.btnBaseDatos.Click += new System.EventHandler(this.btnBaseDatos_Click);
             // 
             // lblElegirBase
             // 
@@ -82,6 +83,15 @@
             this.mrcBasedeDatos.TabStop = false;
             this.mrcBasedeDatos.Text = "Elegir:";
             // 
+            // cmbFiltrar
+            // 
+            this.cmbFiltrar.FormattingEnabled = true;
+            this.cmbFiltrar.Location = new System.Drawing.Point(329, 35);
+            this.cmbFiltrar.Name = "cmbFiltrar";
+            this.cmbFiltrar.Size = new System.Drawing.Size(121, 21);
+            this.cmbFiltrar.TabIndex = 4;
+            this.cmbFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbFiltrar_SelectedIndexChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -91,24 +101,17 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Filtrar:";
             // 
-            // cmbFiltrar
-            // 
-            this.cmbFiltrar.FormattingEnabled = true;
-            this.cmbFiltrar.Location = new System.Drawing.Point(329, 35);
-            this.cmbFiltrar.Name = "cmbFiltrar";
-            this.cmbFiltrar.Size = new System.Drawing.Size(121, 21);
-            this.cmbFiltrar.TabIndex = 4;
-            // 
-            // frmElegirBD
+            // ElegirBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 361);
             this.Controls.Add(this.mrcBasedeDatos);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "frmElegirBD";
-            this.Text = "frmElegirBD";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Controls.Add(this.dgvGrilla);
+            this.Name = "ElegirBD";
+            this.Text = "Elija su base de datos";
+            this.Load += new System.EventHandler(this.ElegirBD_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).EndInit();
             this.mrcBasedeDatos.ResumeLayout(false);
             this.mrcBasedeDatos.PerformLayout();
             this.ResumeLayout(false);
@@ -117,7 +120,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvGrilla;
         private System.Windows.Forms.Button btnBaseDatos;
         private System.Windows.Forms.Label lblElegirBase;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
