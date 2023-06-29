@@ -16,41 +16,41 @@ namespace pryNeptuno
 {
     internal class CConeccionBD
     {
-        OleDbConnection conectarBd = new OleDbConnection();
-        OleDbCommand comandoBd = new OleDbCommand();
-        OleDbDataReader lectorBd;
+        OleDbConnection cnn = new OleDbConnection();
+        OleDbCommand cmd = new OleDbCommand();
+        OleDbDataReader dr;
 
-        public string conectarBase(Button btnConectar, OpenFileDialog openFileDialog, ComboBox comboBoxTablas)
+        public string ConectarBase(Button conectar, OpenFileDialog ofd, ComboBox cmb)
         {
-            comboBoxTablas.Items.Clear();
-            openFileDialog = new OpenFileDialog();
-            string stringConn = "";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            cmb.Items.Clear();
+            ofd = new OpenFileDialog();
+            string connstring = "";
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                string ArchivoElegido = openFileDialog.FileName;
+                string archivo = ofd.FileName;
 
-                if (Path.GetExtension(ArchivoElegido) == ".accdb")
+                if (Path.GetExtension(archivo) == ".accdb")
                 {
-                    stringConn = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + ArchivoElegido;
+                    connstring = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + archivo;
                 }
                 else
                 {
-                    stringConn = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source =" + ArchivoElegido;
-                }
+                    connstring = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source =" + archivo;
+                }   
 
-                conectarBd.ConnectionString = stringConn;
+                cnn.ConnectionString = connstring;
 
                 try
                 {
-                    conectarBd.Open();
+                    cnn.Open();
 
-                    DataTable tablas = conectarBd.GetSchema("Tables");
+                    DataTable tablas = cnn.GetSchema("Tables");
 
                     foreach (DataRow row in tablas.Rows)
                     {
                         if (row[3].ToString() == "TABLE")
                         {
-                            comboBoxTablas.Items.Add(row[2]).ToString();
+                            cmb.Items.Add(row[2]).ToString();
                         }
                     }
 
@@ -61,32 +61,32 @@ namespace pryNeptuno
                     throw;
                 }
             }
-            return stringConn;
+            return connstring;
         }
 
-        public void cargarGrilla(ComboBox comboBoxTb, DataGridView dgvTb, string stringConn)
+        public void CargarGrilla(ComboBox cmb, DataGridView dgv, string connstring)
         {
-            if (comboBoxTb.SelectedIndex != -1)
+            if (cmb.SelectedIndex != -1)
             {
-                conectarBd = new OleDbConnection(stringConn);
+                cnn = new OleDbConnection(connstring);
 
                 try
                 {
-                    comandoBd.Connection = conectarBd;
-                    comandoBd.CommandText = comboBoxTb.Text;
-                    comandoBd.CommandType = CommandType.TableDirect;
-                    comandoBd.Connection.Open();
+                    cmd.Connection = cnn;
+                    cmd.CommandText = cmb.Text;
+                    cmd.CommandType = CommandType.TableDirect;
+                    cmd.Connection.Open();
 
-                    lectorBd = comandoBd.ExecuteReader();
+                    dr = cmd.ExecuteReader();
 
                     DataTable tabla = new DataTable();
-                    tabla.Load(lectorBd);
-                    dgvTb.DataSource = tabla;
-                    comandoBd.Connection.Close();
+                    tabla.Load(dr);
+                    dgv.DataSource = tabla;
+                    cmd.Connection.Close();
                 }
-                catch (Exception error)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(error.Message);
+                    MessageBox.Show(ex.Message);
                     throw;
                 }
 

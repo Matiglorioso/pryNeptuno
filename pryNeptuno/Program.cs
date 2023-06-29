@@ -16,7 +16,7 @@ namespace pryNeptuno
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ElegirBD());
+            Application.Run(new Principal());
         }
     }
 }

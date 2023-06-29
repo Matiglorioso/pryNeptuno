@@ -35,6 +35,7 @@
             this.mrcBasedeDatos = new System.Windows.Forms.GroupBox();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.mrcBasedeDatos.SuspendLayout();
             this.SuspendLayout();
@@ -101,11 +102,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Filtrar:";
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(683, 236);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(99, 27);
+            this.btnVolver.TabIndex = 4;
+            this.btnVolver.Text = "&Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // ElegirBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 361);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.mrcBasedeDatos);
             this.Controls.Add(this.dgvGrilla);
             this.Name = "ElegirBD";
@@ -127,5 +139,6 @@
         private System.Windows.Forms.GroupBox mrcBasedeDatos;
         private System.Windows.Forms.ComboBox cmbFiltrar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

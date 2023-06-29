@@ -54,6 +54,7 @@
             this.nEPTUNODataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new pryNeptuno.NEPTUNODataSetTableAdapters.ClientesTableAdapter();
+            this.btnElegir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.gprFiltrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nEPTUNODataSet)).BeginInit();
@@ -251,11 +252,22 @@
             // 
             this.clientesTableAdapter.ClearBeforeFill = true;
             // 
+            // btnElegir
+            // 
+            this.btnElegir.Location = new System.Drawing.Point(450, 62);
+            this.btnElegir.Name = "btnElegir";
+            this.btnElegir.Size = new System.Drawing.Size(147, 23);
+            this.btnElegir.TabIndex = 9;
+            this.btnElegir.Text = "Elegir otra base de datos";
+            this.btnElegir.UseVisualStyleBackColor = true;
+            this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 429);
+            this.Controls.Add(this.btnElegir);
             this.Controls.Add(this.gprFiltrar);
             this.Controls.Add(this.dgvClientes);
             this.Name = "Principal";
@@ -299,6 +311,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fax;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.Button btnElegir;
     }
 }
 

@@ -25,12 +25,17 @@ namespace pryNeptuno
 
         private void btnBaseDatos_Click(object sender, EventArgs e)
         {
-            cnn = coneccion.conectarBase(btnBaseDatos, openFileDialog1, cmbFiltrar);
+            cnn = coneccion.ConectarBase(btnBaseDatos, openFileDialog1, cmbFiltrar);
         }
 
         private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            coneccion.cargarGrilla(cmbFiltrar, dgvGrilla, cnn);
+            coneccion.CargarGrilla(cmbFiltrar, dgvGrilla, cnn);
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

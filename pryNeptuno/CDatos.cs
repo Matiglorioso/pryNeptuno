@@ -84,33 +84,6 @@ namespace pryNeptuno
             }
 
         }
-
-        ////public void FiltrarGrillaPais(ComboBox pais, DataGridView grilla)
-        //{
-        //    try
-        //    {
-        //        ConectarBase();
-        //        grilla.Rows.Clear();
-        //        //ciudad.SelectedIndex = -1;
-        //        while (DR.Read())
-        //        {
-        //            if (DR[8].ToString() == pais.Text)
-        //            {
-        //                grilla.Rows.Add(DR["IdCliente"].ToString(), DR["NombreCompañía"].ToString(),
-        //                    DR["NombreContacto"].ToString(), DR["CargoContacto"].ToString(), DR["Dirección"].ToString(),
-        //                    DR["Ciudad"].ToString(), DR["Región"].ToString(), DR["País"].ToString(), DR["CódPostal"].ToString(),
-        //                    DR["Teléfono"].ToString(), DR["Fax"].ToString());
-        //            }
-        //        }
-
-        //        DR.Close(); // Cierra el DataReader después de utilizarlo
-        //        CNN.Close(); // Cierra la conexión a la base de datos
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error: " + ex.Message);
-        //    }
-        //}
         public void FiltrarCiudadesPorPais(string nombrePais, ComboBox ciudad)
         {
             try
@@ -140,32 +113,6 @@ namespace pryNeptuno
     }
 }
 
-    //    public void FiltrarGrillaCiudad(ComboBox ciudad, DataGridView grilla)
-    //    {
-    //        try
-    //        {
-    //            ConectarBase();
-    //            grilla.Rows.Clear();
-    //            //ciudad.SelectedIndex = -1;
-    //            while (DR.Read())
-    //            {
-    //                if (DR[5].ToString() == ciudad.Text)
-    //                {
-    //                    grilla.Rows.Add(DR["IdCliente"].ToString(), DR["NombreCompañía"].ToString(),
-    //                        DR["NombreContacto"].ToString(), DR["CargoContacto"].ToString(), DR["Dirección"].ToString(),
-    //                        DR["Ciudad"].ToString(), DR["Región"].ToString(), DR["País"].ToString(), DR["CódPostal"].ToString(),
-    //                        DR["Teléfono"].ToString(), DR["Fax"].ToString());
-    //                }
-    //            }
-
-    //            DR.Close(); // Cierra el DataReader después de utilizarlo
-    //            CNN.Close(); // Cierra la conexión a la base de datos
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            MessageBox.Show("Error: " + ex.Message);
-    //        }
-    //    }
-    //}
+  
 
 

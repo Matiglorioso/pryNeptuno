@@ -51,5 +51,11 @@ namespace pryNeptuno
         {
 
         }
+
+        private void btnElegir_Click(object sender, EventArgs e)
+        {
+            ElegirBD x = new ElegirBD();
+            x.ShowDialog();
+        }
     }
 }
